@@ -7,12 +7,13 @@ import (
 	"github.com/whaangbuu/is"
 )
 
-func TestNoError(t *testing.T) {
+func TestIsPackage(t *testing.T) {
+	t.Run("IsPackage", func(mt *testing.T) {
+		has := is.New(mt)
 
-	has := is.New(t)
+		num, err := strconv.ParseInt("10", 10, 64)
 
-	num, err := strconv.ParseInt("1", 10, 32)
-
-	has.NoError(err) // false
-	has.NotNil(num)  // 1
+		has.NoError(err)
+		has.NotNil(num)
+	})
 }
