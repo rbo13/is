@@ -5,13 +5,13 @@ import "testing"
 // Is the instance of our assertion
 // package
 type Is struct {
-	Test *testing.T
+	testing *testing.T
 }
 
 // New returns an instance of Is
 func New(t *testing.T) Is {
 	return Is{
-		Test: t,
+		testing: t,
 	}
 }
 
@@ -19,8 +19,8 @@ func New(t *testing.T) Is {
 // a certain value
 func (i *Is) NoError(err interface{}) bool {
 	if err != nil {
-		i.Test.Error(err)
-		return false
+		i.testing.Errorf("Error due to: %v", err)
+		return i.testing.Failed()
 	}
 	return true
 }
@@ -31,6 +31,6 @@ func (i *Is) NotNil(val interface{}) bool {
 		return true
 	}
 
-	i.Test.Error(val)
-	return false
+	i.testing.Errorf("Value should not be empty, instead got: %v", val)
+	return i.testing.Failed()
 }
