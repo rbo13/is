@@ -1,6 +1,9 @@
 package is
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 // Is the instance of our assertion
 // package
@@ -33,4 +36,12 @@ func (i *Is) NotNil(val interface{}) bool {
 
 	i.testing.Errorf("Value should not be empty, instead got: %v", val)
 	return i.testing.Failed()
+}
+
+// Int64 returns an error if val
+// is not of type int64
+func (i *Is) Int64(val interface{}) {
+	if reflect.TypeOf(val).Kind() != reflect.Int64 {
+		i.testing.Errorf("Expecting as type int64, but got: %v", reflect.TypeOf(val).Kind())
+	}
 }

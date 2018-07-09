@@ -9,11 +9,12 @@ import (
 
 func TestIsPackage(t *testing.T) {
 	t.Run("IsPackage", func(mt *testing.T) {
-		has := is.New(mt)
+		assert := is.New(mt)
 
-		num, err := strconv.ParseInt("10", 10, 64)
+		num, err := strconv.ParseInt("10", 10, 32)
 
-		has.NoError(err)
-		has.NotNil(num)
+		assert.NoError(err)
+		assert.NotNil(num)
+		assert.Int64(int64(10))
 	})
 }
