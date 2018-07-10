@@ -16,6 +16,7 @@ func TestIsPackage(t *testing.T) {
 		assert.NoError(err)
 		assert.NotNil(num)
 		assert.Int64(int64(10))
-		assert.Int32(int32(2))
+		assert.Int32("2")
+		assert.String(1)
 	})
 }
