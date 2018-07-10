@@ -51,3 +51,10 @@ func (i *Is) Int32(val interface{}) {
 		i.testing.Errorf("Expecting as type int32, but got: %v", reflect.TypeOf(val).Kind())
 	}
 }
+
+// String evalueates val if of type string
+func (i *Is) String(val interface{}) {
+	if reflect.TypeOf(val).Kind() != reflect.String {
+		i.testing.Errorf("Expecting as type string, but got: %v", reflect.TypeOf(val).Kind())
+	}
+}
