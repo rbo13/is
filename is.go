@@ -38,10 +38,16 @@ func (i *Is) NotNil(val interface{}) bool {
 	return i.testing.Failed()
 }
 
-// Int64 returns an error if val
-// is not of type int64
+// Int64 evaluates val if of type int64
 func (i *Is) Int64(val interface{}) {
 	if reflect.TypeOf(val).Kind() != reflect.Int64 {
 		i.testing.Errorf("Expecting as type int64, but got: %v", reflect.TypeOf(val).Kind())
+	}
+}
+
+// Int32 evaluates val if of type int32
+func (i *Is) Int32(val interface{}) {
+	if reflect.TypeOf(val).Kind() != reflect.Int32 {
+		i.testing.Errorf("Expecting as type int32, but got: %v", reflect.TypeOf(val).Kind())
 	}
 }
