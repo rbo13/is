@@ -48,9 +48,14 @@ func (i *Is) Int32(val interface{}) {
 	i.assertVal(val, reflect.Int32)
 }
 
-// String evalueates val if of type string
+// String evaluates val if of type string
 func (i *Is) String(val interface{}) {
 	i.assertVal(val, reflect.String)
+}
+
+// Array evaluates val if of type array
+func (i *Is) Array(val interface{}) {
+	i.assertVal(val, reflect.Array)
 }
 
 func (i *Is) assertVal(val interface{}, kind reflect.Kind) {
