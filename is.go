@@ -58,6 +58,14 @@ func (i *Is) Array(val interface{}) {
 	i.assertVal(val, reflect.Array)
 }
 
+// ArrayEmpty evaluates if an array passed
+// is empty.
+func (i *Is) ArrayEmpty(arr []interface{}) {
+	if len(arr) > 0 {
+		i.testing.Errorf("AssertionError: expected array to be empty, but got size of: %d", len(arr))
+	}
+}
+
 func (i *Is) assertVal(val interface{}, kind reflect.Kind) {
 	if reflect.TypeOf(val).Kind() != kind {
 		i.testing.Errorf("AssertionError: expected as type %v, but got: %v instead", kind, reflect.TypeOf(val).Kind())
