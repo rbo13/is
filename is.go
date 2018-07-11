@@ -41,25 +41,16 @@ func (i *Is) NotNil(val interface{}) bool {
 // Int64 evaluates val if of type int64
 func (i *Is) Int64(val interface{}) {
 	i.assertVal(val, reflect.Int64)
-	// if reflect.TypeOf(val).Kind() != reflect.Int64 {
-	// 	i.testing.Errorf("Expecting as type int64, but got: %v", reflect.TypeOf(val).Kind())
-	// }
 }
 
 // Int32 evaluates val if of type int32
 func (i *Is) Int32(val interface{}) {
 	i.assertVal(val, reflect.Int32)
-	// if reflect.TypeOf(val).Kind() != reflect.Int32 {
-	// 	i.testing.Errorf("Expecting as type int32, but got: %v", reflect.TypeOf(val).Kind())
-	// }
 }
 
 // String evalueates val if of type string
 func (i *Is) String(val interface{}) {
 	i.assertVal(val, reflect.String)
-	// if reflect.TypeOf(val).Kind() != reflect.String {
-	// 	i.testing.Errorf("Expecting as type string, but got: %v", reflect.TypeOf(val).Kind())
-	// }
 }
 
 func (i *Is) assertVal(val interface{}, kind reflect.Kind) {
