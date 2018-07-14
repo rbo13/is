@@ -26,6 +26,6 @@ func TestIsPackage(t *testing.T) {
 		assert.String("1")
 		assert.Array([2]string{"Hello", "World"})
 		assert.ArrayEmpty(person)
-		assert.NotEmpty(person)
+		assert.NotEmpty(persona)
 	})
 }
