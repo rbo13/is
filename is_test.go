@@ -13,6 +13,11 @@ func TestIsPackage(t *testing.T) {
 
 		num, err := strconv.ParseInt("10", 10, 32)
 		var person []interface{}
+		persona := person
+
+		persona = append(persona, "Richard")
+		persona = append(persona, "Burk")
+		persona = append(persona, 10)
 
 		assert.NoError(err)
 		assert.NotNil(num)
@@ -21,5 +26,6 @@ func TestIsPackage(t *testing.T) {
 		assert.String("1")
 		assert.Array([2]string{"Hello", "World"})
 		assert.ArrayEmpty(person)
+		assert.NotEmpty(person)
 	})
 }
