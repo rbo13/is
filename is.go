@@ -69,7 +69,7 @@ func (i *Is) ArrayEmpty(arr []interface{}) {
 // NotEmpty evaluates if an array passed
 // is empty.
 func (i *Is) NotEmpty(arr []interface{}) {
-	if len(arr) < 0 {
+	if arr == nil {
 		i.testing.Errorf("AssertionError: expected array should not be empty, but got size of: %d", len(arr))
 	}
 }
