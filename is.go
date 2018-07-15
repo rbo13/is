@@ -1,7 +1,6 @@
 package is
 
 import (
-	"reflect"
 	"testing"
 )
 
@@ -73,11 +72,5 @@ func (i Is) ArrayData(arr []interface{}) ArrayDataSet {
 func (as ArrayDataSet) SizeOf(size int) {
 	if len(as.arr) != size {
 		as.assert.testing.Errorf("AssertionError: expected array to be size of: %d, but got size of %d instead", size, len(as.arr))
-	}
-}
-
-func (i *Is) assertVal(val interface{}, kind reflect.Kind) {
-	if reflect.TypeOf(val).Kind() != kind {
-		i.testing.Errorf("AssertionError: expected as type %v, but got: %v instead", kind, reflect.TypeOf(val).Kind())
 	}
 }
