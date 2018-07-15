@@ -34,13 +34,10 @@ func (i *Is) NoError(err error) {
 }
 
 // NotNil asserts if a val is not nil
-func (i *Is) NotNil(val interface{}) bool {
-	if val != nil {
-		return true
+func (i *Is) NotNil(val interface{}) {
+	if val == nil {
+		i.testing.Errorf("AssertionError: expected value should not be: %v", val)
 	}
-
-	i.testing.Errorf("Value should not be empty, instead got: %v", val)
-	return i.testing.Failed()
 }
 
 // TypeOf checks the type of value
