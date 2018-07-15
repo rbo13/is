@@ -27,5 +27,8 @@ func TestIsPackage(t *testing.T) {
 		assert.Array([2]string{"Hello", "World"})
 		assert.ArrayEmpty(person)
 		assert.NotEmpty(persona)
+
+		assert.ArrayData(persona).SizeOf(3)
+		// assert.Array(person).SizeOf(10)
 	})
 }
