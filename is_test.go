@@ -1,6 +1,7 @@
 package is_test
 
 import (
+	"reflect"
 	"strconv"
 	"testing"
 
@@ -21,10 +22,7 @@ func TestIsPackage(t *testing.T) {
 
 		assert.NoError(err)
 		assert.NotNil(num)
-		assert.Int64(int64(10))
-		assert.Int32(int32(1))
-		assert.String("1")
-		assert.Array([2]string{"Hello", "World"})
+		assert.TypeOf(reflect.Slice, person)
 		assert.ArrayEmpty(person)
 		assert.NotEmpty(persona)
 
