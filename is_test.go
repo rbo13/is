@@ -22,7 +22,7 @@ func TestIsPackage(t *testing.T) {
 
 		assert.NoError(err)
 		assert.NotNil(num)
-		assert.TypeOf(reflect.Struct, person)
+		assert.TypeOf(reflect.Slice, person)
 		assert.ArrayEmpty(person)
 		assert.NotEmpty(persona)
 
