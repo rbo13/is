@@ -45,26 +45,6 @@ func (i *Is) NotNil(val interface{}) bool {
 	return i.testing.Failed()
 }
 
-// Int64 evaluates val if of type int64
-func (i *Is) Int64(val interface{}) {
-	i.assertVal(val, reflect.Int64)
-}
-
-// Int32 evaluates val if of type int32
-func (i *Is) Int32(val interface{}) {
-	i.assertVal(val, reflect.Int32)
-}
-
-// String evaluates val if of type string
-func (i *Is) String(val interface{}) {
-	i.assertVal(val, reflect.String)
-}
-
-// Array evaluates val if of type array
-func (i *Is) Array(val interface{}) {
-	i.assertVal(val, reflect.Array)
-}
-
 // ArrayEmpty evaluates if an array passed
 // is empty.
 func (i *Is) ArrayEmpty(arr []interface{}) {
