@@ -45,6 +45,11 @@ func (i *Is) NotNil(val interface{}) bool {
 	return i.testing.Failed()
 }
 
+// TypeOf checks the type of value
+func (i *Is) TypeOf(kind reflect.Kind, val interface{}) {
+	i.kindOf(kind, val)
+}
+
 // ArrayEmpty evaluates if an array passed
 // is empty.
 func (i *Is) ArrayEmpty(arr []interface{}) {
