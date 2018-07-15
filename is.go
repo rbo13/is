@@ -27,22 +27,17 @@ func New(t *testing.T) Is {
 
 // NoError asserts if no error from
 // a certain value
-func (i *Is) NoError(err interface{}) bool {
+func (i *Is) NoError(err error) {
 	if err != nil {
-		i.testing.Errorf("Error due to: %v", err)
-		return i.testing.Failed()
+		i.testing.Errorf("AssertionError: expected err to be nil, but got: %v", err)
 	}
-	return true
 }
 
 // NotNil asserts if a val is not nil
-func (i *Is) NotNil(val interface{}) bool {
-	if val != nil {
-		return true
+func (i *Is) NotNil(val interface{}) {
+	if val == nil {
+		i.testing.Errorf("AssertionError: expected value should not be: %v", val)
 	}
-
-	i.testing.Errorf("Value should not be empty, instead got: %v", val)
-	return i.testing.Failed()
 }
 
 // TypeOf checks the type of value
