@@ -27,12 +27,10 @@ func New(t *testing.T) Is {
 
 // NoError asserts if no error from
 // a certain value
-func (i *Is) NoError(err error) bool {
+func (i *Is) NoError(err error) {
 	if err != nil {
-		i.testing.Errorf("Error due to: %v", err)
-		return i.testing.Failed()
+		i.testing.Errorf("AssertionError: expected err to be nil, but got: %v", err)
 	}
-	return false
 }
 
 // NotNil asserts if a val is not nil
